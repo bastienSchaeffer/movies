@@ -2,11 +2,10 @@ import reducer from './Movies';
 import {
   MOVIES_FAILURE,
   MOVIES_REQUEST,
-  MOVIES_SAVE
+  MOVIES_SAVE,
 } from '../actions';
 
 describe('Movies reducer', () => {
-
   const initialState = {
     error: null,
     isLoading: false,
@@ -49,12 +48,12 @@ describe('Movies reducer', () => {
     const state = { ...initialState, isLoading: true };
     const movies = [
       { id: 'movie_1', title: 'Title movie one' },
-      { id: 'movie_2', title: 'Title movie two' }
+      { id: 'movie_2', title: 'Title movie two' },
     ];
     expect(
       reducer(state, {
         type: MOVIES_SAVE,
-        movies
+        movies,
       }),
     ).toEqual({
       ...initialState,
@@ -62,4 +61,4 @@ describe('Movies reducer', () => {
       isLoading: false,
     });
   });
-})
+});

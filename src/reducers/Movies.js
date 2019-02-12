@@ -1,7 +1,7 @@
 import {
   MOVIES_FAILURE,
   MOVIES_REQUEST,
-  MOVIES_SAVE
+  MOVIES_SAVE,
 } from '../actions';
 
 const initialState = {

@@ -1,6 +1,11 @@
-import React from 'react'
-import { render, waitForElement, fireEvent, cleanup } from 'react-testing-library'
-import Movies from './'
+import React from 'react';
+import {
+  render,
+  waitForElement,
+  fireEvent,
+  cleanup,
+} from 'react-testing-library';
+import MoviesState from '../MoviesState';
 
 /*
   Keep all clean
@@ -14,16 +19,14 @@ console.error = jest.fn();
 /*
   Test when loading the movies on ComponentDidMount
 */
-describe.skip('rendering movies', () => {
+describe.skip('MoviesState on ComponentDidMount', () => {
   test('renders an error when fetch fails', async () => {
     // Arrange
     const errorFetch = 'Unsuccessful request';
     fetch.mockReject(new Error(errorFetch));
-
     // Act
-    const { getByTestId } = render(<Movies />);
-    await waitForElement(() => getByTestId('error'))
-
+    const { getByTestId } = render(<MoviesState />);
+    await waitForElement(() => getByTestId('error'));
     // Assert
     expect(getByTestId('error-message').textContent).toBe(errorFetch);
   });
@@ -33,15 +36,13 @@ describe.skip('rendering movies', () => {
     const movies = {
       movies: [
         { id: 'movie_1', title: 'Title movie one' },
-        { id: 'movie_2', title: 'Title movie two' }
-      ]
-    }
+        { id: 'movie_2', title: 'Title movie two' },
+      ],
+    };
     fetch.mockResponseOnce(JSON.stringify(movies));
-
     // Act
-    const { getByTestId, getAllByTestId, getByText } = render(<Movies />);
-    await waitForElement(() => getByTestId('list-movies'))
-
+    const { getByTestId, getAllByTestId, getByText } = render(<MoviesState />);
+    await waitForElement(() => getByTestId('list-movies'));
     // Assert
     expect(getAllByTestId('movie').length).toBe(movies.movies.length);
     expect(getByText('Title movie one')).toBeInTheDocument();
@@ -52,21 +53,19 @@ describe.skip('rendering movies', () => {
 /*
   Test when loading the movies by clicking on the loadMovieButton button
 */
-describe('rendering on clicking', () => {
+describe('MoviesState', () => {
   test('renders the loading and an error message when failing', async () => {
     // Arrange
     const errorFetch = 'Unsuccessful request';
     fetch.mockReject(new Error(errorFetch));
-
     // Act
-    const { getByTestId, queryByTestId } = render(<Movies />);
+    const { getByTestId, queryByTestId } = render(<MoviesState />);
     const loadMovieButton = queryByTestId('load-movie-button');
     fireEvent.click(loadMovieButton);
-
     // Assert
     expect(queryByTestId('is-loading')).toBeTruthy();
-    const errorContainer = await waitForElement(() => getByTestId('error-message'))
-    expect(errorContainer).toHaveTextContent(errorFetch)
+    const errorContainer = await waitForElement(() => getByTestId('error-message'));
+    expect(errorContainer).toHaveTextContent(errorFetch);
     expect(queryByTestId('is-loading')).toBeFalsy();
   });
 
@@ -75,18 +74,18 @@ describe('rendering on clicking', () => {
     const movies = {
       movies: [
         { id: 'movie_1', title: 'Title movie one' },
-        { id: 'movie_2', title: 'Title movie two' }
-      ]
-    }
+        { id: 'movie_2', title: 'Title movie two' },
+      ],
+    };
     fetch.mockResponseOnce(JSON.stringify(movies));
-
     // Act
-    const { debug, getByTestId, queryByTestId, getAllByTestId } = render(<Movies />);
+    const {
+      getByTestId, queryByTestId, getAllByTestId,
+    } = render(<MoviesState />);
     const loadMovieButton = queryByTestId('load-movie-button');
     fireEvent.click(loadMovieButton);
     expect(queryByTestId('is-loading')).toBeTruthy();
-    await waitForElement(() => getByTestId('list-movies'))
-
+    await waitForElement(() => getByTestId('list-movies'));
     // Assert
     expect(getAllByTestId('movie').length).toBe(2);
     expect(queryByTestId('is-loading')).toBeFalsy();

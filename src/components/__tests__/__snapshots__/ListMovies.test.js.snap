@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListMovies render renders a loading indicator  1`] = `
+<div>
+  <div
+    data-testid="is-loading"
+  >
+    <p>
+      ...Loading
+    </p>
+  </div>
+  
+  <button
+    data-testid="load-movie-button"
+    type="button"
+  >
+    Load Movies
+  </button>
+</div>
+`;
+
+exports[`ListMovies render renders an error and a button  1`] = `
+<div>
+  <div
+    data-testid="error"
+  >
+    <p
+      data-testid="error-message"
+    >
+      Failed to load
+    </p>
+  </div>
+  
+  <button
+    data-testid="load-movie-button"
+    type="button"
+  >
+    Load Movies
+  </button>
+</div>
+`;
+
+exports[`ListMovies render renders no loading, no error, no movies and a button 1`] = `
+<div>
+  
+  <button
+    data-testid="load-movie-button"
+    type="button"
+  >
+    Load Movies
+  </button>
+</div>
+`;
+
+exports[`ListMovies render renders the movies  1`] = `
+<div>
+  <ul
+    data-testid="list-movies"
+  >
+    <li
+      data-testid="movie"
+    >
+      <span>
+        Title movie one
+      </span>
+    </li>
+    <li
+      data-testid="movie"
+    >
+      <span>
+        Title movie two
+      </span>
+    </li>
+  </ul>
+  <button
+    data-testid="load-movie-button"
+    type="button"
+  >
+    Load Movies
+  </button>
+</div>
+`;

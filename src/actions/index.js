@@ -1,10 +1,12 @@
+import APIfetchMovies from '../api';
+
 export const MOVIES_FAILURE = 'MOVIES_FAILURE';
 export const MOVIES_REQUEST = 'MOVIES_REQUEST';
 export const MOVIES_SAVE = 'MOVIES_SAVE';
 
 export const moviesFailure = error => ({
   type: MOVIES_FAILURE,
-  error: error,
+  error,
 });
 
 export const moviesRequest = {
@@ -16,15 +18,13 @@ export const moviesSave = movies => ({
   movies,
 });
 
-export const fetchMovies = () => dispatch => {
-
+export const fetchMovies = () => async (dispatch) => {
   dispatch(moviesRequest);
 
-  return fetch('https://facebook.github.io/react-native/movies.json')
-    .then(res => res.json())
-    .then(json => {
-      console.log(json.movies);
-      dispatch(moviesSave(json.movies))
-    })
-    .catch(err => dispatch(moviesFailure(err)));
+  try {
+    const { movies } = await APIfetchMovies();
+    dispatch(moviesSave(movies));
+  } catch (err) {
+    dispatch(moviesFailure(err.message));
+  }
 };

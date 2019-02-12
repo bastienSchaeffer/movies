@@ -53,17 +53,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ```
 codebuild
-├── branch.sh                         # Build feature branches
-├── publish.sh                        # Publish build
+├── branch.sh                       # Build feature branches
+├── publish.sh                      # Publish build
 public
-├── favicon.ico                       # Application favicon
-├── index.html                        # Main page template
-├── manifest.json                     # App manifest
-├── oauthcallback.html                # ADFS authentication callback page
+├── favicon.ico                     # Application favicon
+├── index.html                      # Main page template
+├── manifest.json                   # App manifest
+├── oauthcallback.html              # ADFS authentication callback page
 src
 ├── actions
-  ├── actions.test.js           # Redux Movies actions test
-  ├── index.js                  # Redux Movies actions
+  ├── actions.test.js               # Redux Movies actions test
+  ├── index.js                      # Redux Movies actions
 ├── components
   ├── Movies
     ├── index.js                    # Movies component (working with state (HOOKS))
@@ -82,7 +82,7 @@ src
   ├── globalStyles.js               # Styled component global styles
 ├── index.css
 ├── index.js
-├── setupTests.js                     # Initialize react-testing-library
+├── setupTests.js                   # Initialize react-testing-library
 
 ```
 

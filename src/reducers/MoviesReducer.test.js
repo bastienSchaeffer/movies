@@ -17,7 +17,7 @@ describe('Movies reducer', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
-  it('should handle FETCH_FAILURE', () => {
+  it('should handle MOVIES_FAILURE', () => {
     const state = { ...initialState, isLoading: true };
     const error = 'Error';
 

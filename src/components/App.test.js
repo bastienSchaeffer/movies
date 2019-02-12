@@ -1,8 +1,14 @@
 import React from 'react'
-import { render } from 'react-testing-library'
+import { render, cleanup } from 'react-testing-library'
 import App from './App'
 
-it('renders welcome message', () => {
-  const { getByText } = render(<App />);
-  expect(getByText('Movies')).toBeInTheDocument();
+afterEach(() => {
+  cleanup();
+  console.error.mockClear();
+});
+console.error = jest.fn();
+
+it.only('renders the app', () => {
+  const { getByText } = render(<App />)
+  expect(getByText('App Movies')).toBeInTheDocument();
 });

@@ -2,7 +2,9 @@ import React from 'react'
 import { render, waitForElement, fireEvent, cleanup } from 'react-testing-library'
 import Movies from './'
 
-
+/*
+  Keep all clean
+*/
 afterEach(() => {
   cleanup();
   console.error.mockClear();
@@ -13,7 +15,7 @@ console.error = jest.fn();
   Test when loading the movies on ComponentDidMount
 */
 describe.skip('rendering movies', () => {
-  it('renders an error when fetch fails', async () => {
+  test('renders an error when fetch fails', async () => {
     // Arrange
     const errorFetch = 'Unsuccessful request';
     fetch.mockReject(new Error(errorFetch));
@@ -26,7 +28,7 @@ describe.skip('rendering movies', () => {
     expect(getByTestId('error-message').textContent).toBe(errorFetch);
   });
 
-  it('renders the movies when fetch successes', async () => {
+  test('renders the movies when fetch successes', async () => {
     // Arrange
     const movies = {
       movies: [
@@ -51,7 +53,7 @@ describe.skip('rendering movies', () => {
   Test when loading the movies by clicking on the loadMovieButton button
 */
 describe('rendering on clicking', () => {
-  it('renders the loading and an error message when failing', async () => {
+  test('renders the loading and an error message when failing', async () => {
     // Arrange
     const errorFetch = 'Unsuccessful request';
     fetch.mockReject(new Error(errorFetch));
@@ -68,7 +70,7 @@ describe('rendering on clicking', () => {
     expect(queryByTestId('is-loading')).toBeFalsy();
   });
 
-  it('renders the loading and the movies when succesful', async () => {
+  test('renders the loading and the movies when succesful', async () => {
     // Arrange
     const movies = {
       movies: [

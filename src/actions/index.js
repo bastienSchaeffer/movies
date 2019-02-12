@@ -18,7 +18,7 @@ export const moviesSave = movies => ({
   movies,
 });
 
-export const fetchMovies = () => async (dispatch) => {
+export const fetchMovies = async (dispatch) => {
   dispatch(moviesRequest);
 
   try {

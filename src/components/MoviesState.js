@@ -3,7 +3,7 @@ import APIfetchMovies from '../api';
 import ListMovies from './ListMovies';
 
 const Movies = () => {
-  const [movies, setMovies] = useState([]);
+  const [moviesCollection, setMoviesCollection] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
@@ -11,7 +11,7 @@ const Movies = () => {
     setLoading(true);
     try {
       const { movies } = await APIfetchMovies();
-      setMovies(movies);
+      setMoviesCollection(movies);
     } catch (err) {
       setError(err.message);
     }
@@ -29,7 +29,7 @@ const Movies = () => {
       <ListMovies
         error={error}
         isLoading={isLoading}
-        movies={movies}
+        movies={moviesCollection}
         onClickLoadMovies={fetchMovies}
       />
     </div>

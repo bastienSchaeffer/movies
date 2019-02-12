@@ -59,20 +59,25 @@ public
 ├── favicon.ico                     # Application favicon
 ├── index.html                      # Main page template
 ├── manifest.json                   # App manifest
-├── oauthcallback.html              # ADFS authentication callback page
 src
 ├── actions
   ├── actions.test.js               # Redux Movies actions test
   ├── index.js                      # Redux Movies actions
+├── api
+  ├── api.test.js                   # APIfetchMovies test
+  ├── index.js                      # APIfetchMovies
 ├── components
-  ├── Movies
-    ├── index.js                    # Movies component (working with state (HOOKS))
-    ├── Movies.test.js              # Movies component tests
-  ├── MoviesRedux
-    ├── index.js                    # MoviesRedux component
-    ├── Movies.test.js              # MoviesRedux component tests
+  ├── __tests__
+    ├── __snapshots__
+      ├── ListMovies.test.js.snap
+    ├── App.test.js
+    ├── ListMovies.test.js
+    ├── MoviesRedux.test.js
+    ├── MoviesState.test.js
   ├── App.js
-  ├── App.test.js
+  ├── ListMovies.js
+  ├── MoviesRedux.js                # Movies container using redux
+  ├── MoviesState.js                # Movies container using state
 ├── reducers
   ├── index.js                      # combined reducers
   ├── Movies.js                     # Movies reducer
@@ -80,17 +85,10 @@ src
 ├── utils
   ├── enableReduxDevtool.js         # Console dev tool
   ├── globalStyles.js               # Styled component global styles
-├── index.css
 ├── index.js
 ├── setupTests.js                   # Initialize react-testing-library
 
 ```
-
-#### Movies
-
-The component Movies contains the Hook to load the data on ComponentDidMount, it is commented.
-The Movies.test.js also contains the tests if data are loaded on ComponentDidMount, and they are skipped.
-
 
 Tests
 -----

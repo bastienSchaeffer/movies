@@ -9,10 +9,15 @@ import App from '../App';
 import enableReduxDevtool from '../../utils/enableReduxDevtool';
 import rootReducer from '../../reducers';
 
+/*
+  Keep all clean
+*/
 afterEach(() => {
   cleanup();
+  // eslint-disable-next-line no-console
   console.error.mockClear();
 });
+// eslint-disable-next-line no-console
 console.error = jest.fn();
 
 /*

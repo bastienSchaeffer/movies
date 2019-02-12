@@ -12,8 +12,10 @@ import MoviesState from '../MoviesState';
 */
 afterEach(() => {
   cleanup();
+  // eslint-disable-next-line no-console
   console.error.mockClear();
 });
+// eslint-disable-next-line no-console
 console.error = jest.fn();
 
 /*

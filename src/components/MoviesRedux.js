@@ -8,10 +8,10 @@ const MoviesRedux = ({
   error,
   movies,
   isLoading,
-  fetchMovies,
+  loadingMovies,
 }) => {
   const onClickLoadMovies = () => {
-    fetchMovies();
+    loadingMovies();
   };
 
   return (
@@ -30,7 +30,7 @@ const MoviesRedux = ({
 MoviesRedux.propTypes = {
   error: PropTypes.string,
   isLoading: PropTypes.bool.isRequired,
-  fetchMovies: PropTypes.func.isRequired,
+  loadingMovies: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -59,7 +59,11 @@ const mapStateToProps = (state) => {
 };
 
 
+const mapDispatchToProps = dispatch => ({
+  loadingMovies: () => dispatch(fetchMovies),
+});
+
 export default connect(
   mapStateToProps,
-  { fetchMovies },
+  mapDispatchToProps,
 )(MoviesRedux);

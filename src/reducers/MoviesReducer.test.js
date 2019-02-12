@@ -51,7 +51,6 @@ describe('Movies reducer', () => {
       { id: 'movie_1', title: 'Title movie one' },
       { id: 'movie_2', title: 'Title movie two' }
     ];
-
     expect(
       reducer(state, {
         type: MOVIES_SAVE,
@@ -63,5 +62,4 @@ describe('Movies reducer', () => {
       isLoading: false,
     });
   });
-
 })

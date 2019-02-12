@@ -28,22 +28,22 @@ const Movies = () => {
   return (
     <div>
       <h2>Movies</h2>
-
       {
+        // Display the error from component's state
         !!error &&
         <div data-testid='error'>
           <p data-testid='error-message'>{error}</p>
         </div>
       }
-
       {
+        // Display the loading from component's state
         isLoading &&
         <div data-testid='is-loading'>
           <p>...Loading</p>
         </div>
       }
-
       {
+        // Display the movies from component's state
         movies.length
           ? <ul data-testid='list-movies'>
             {
@@ -56,10 +56,11 @@ const Movies = () => {
           </ul>
           : ''
       }
-
-
-      <button data-testid='load-movie-button' onClick={fetchMovies}>Load Movies</button>
-
+      <button
+        data-testid='load-movie-button'
+        onClick={fetchMovies}>
+        Load Movies
+      </button>
     </div>
   );
 };

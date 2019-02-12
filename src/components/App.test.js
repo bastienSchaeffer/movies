@@ -15,12 +15,13 @@ afterEach(() => {
 });
 console.error = jest.fn();
 
-//----------------
+/*
+  Connect
+*/
 const storeEnhancer = compose(
   applyMiddleware(thunk),
   enableReduxDevtool
 );
-
 const renderComponent = (store) =>
   render(
     <Provider store={createStore(rootReducer, store, storeEnhancer)}>

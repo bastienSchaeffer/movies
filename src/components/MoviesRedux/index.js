@@ -19,21 +19,21 @@ const MoviesRedux = ({
     <div>
       <h2>Movies</h2>
       {
-        // Display the error from component's state
+        // Display the error from redux state
         !!error &&
         <div data-testid='error'>
           <p data-testid='error-message'>{error}</p>
         </div>
       }
       {
-        // Display the loading from component's state
+        // Display the loading from redux state
         isLoading &&
         <div data-testid='is-loading'>
           <p>...Loading</p>
         </div>
       }
       {
-        // Display the movies from component's state
+        // Display the movies from redux state
         movies.length
           ? <ul data-testid='list-movies'>
             {
@@ -46,7 +46,11 @@ const MoviesRedux = ({
           </ul>
           : ''
       }
-      <button data-testid='load-movie-button' onClick={onLoadMoviesClick}>Load Movies</button>
+      <button
+        data-testid='load-movie-button'
+        onClick={onLoadMoviesClick}>
+        Load Movies
+      </button>
     </div>
   );
 };

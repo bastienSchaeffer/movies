@@ -17,12 +17,13 @@ afterEach(() => {
 });
 console.error = jest.fn();
 
-//----------------
+/*
+  Connect
+*/
 const storeEnhancer = compose(
   applyMiddleware(thunk),
   enableReduxDevtool
 );
-
 const renderComponent = (store) =>
   render(
     <Provider store={createStore(rootReducer, store, storeEnhancer)}>
@@ -33,7 +34,6 @@ const renderComponent = (store) =>
 /*
   Test when loading the movies by clicking on the loadMovieButton button
 */
-
 describe('rendering on clicking', () => {
   test('renders the loading and an error message when failing', async () => {
     const { container, getAllByTestId, queryByTestId } = renderComponent({
@@ -45,7 +45,6 @@ describe('rendering on clicking', () => {
         ]
       }
     });
-    const loadMovieButton = queryByTestId('load-movie-button');
     expect(getAllByTestId('movie').length).toBe(1);
   });
 });

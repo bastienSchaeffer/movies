@@ -7,7 +7,8 @@ describe('Movies actions', () => {
         error: null,
         isLoading: false,
         movies: [
-          { id: 'id_1', title: 'movie a' }
+          { id: 'movie_1', title: 'Title movie one' },
+          { id: 'movie_2', title: 'Title movie two' }
         ]
       }
     }

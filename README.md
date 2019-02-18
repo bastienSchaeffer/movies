@@ -41,6 +41,7 @@ Where _{task}_ is one of the following.
 `test`                | Tests in interactive mode with Jest/Enzyme
 `test {regex}`        | Tests files matching regex
 `test --coverage`     | Tests all files and generates a coverage report
+`lint`                | Lint js files
 ```
 
 Please refer to the [yarn documentation](https://yarnpkg.com/en/docs) for more details.
